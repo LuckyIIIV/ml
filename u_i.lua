@@ -219,38 +219,12 @@ Frame.BorderSizePixel = 0
 Frame.Position = UDim2.new(0, 0, 1, 0)
 Frame.Size = UDim2.new(1, 0, 0, 2)
 
-
-
-
-
-
 Tab.Name = "Tab"
 Tab.Parent = Prefabs
 Tab.BackgroundColor3 = Color3.new(1, 1, 1)
-Tab.BackgroundTransparency = 0.45
+Tab.BackgroundTransparency = 1
 Tab.Size = UDim2.new(1, 0, 1, 0)
 Tab.Visible = false
-
-local gradient = Instance.new("UIGradient")
-gradient.Parent = Tab
-
-gradient.Color = ColorSequence.new{
-    ColorSequenceKeypoint.new(0, Color3.fromRGB(10,10,10)),
-    ColorSequenceKeypoint.new(0.5, Color3.fromRGB(60,0,0)),
-    ColorSequenceKeypoint.new(1, Color3.fromRGB(120,0,0))
-}
-
-gradient.Rotation = 120
-
-local Blur = Instance.new("UIStroke")
-Blur.Thickness = 1.5
-Blur.Color = Color3.fromRGB(255,0,0)
-Blur.Parent = Tab
-
-
-
-
-
 
 UIListLayout_2.Parent = Tab
 UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
@@ -1150,6 +1124,15 @@ function library:AddWindow(title, options)
 				local new_tab = Prefabs:FindFirstChild("Tab"):Clone()
 				new_tab.Parent = tabs
 				new_tab.ZIndex = new_tab.ZIndex + (windows * 10)
+
+                                new_tab.BackgroundTransparency = 0.45
+                                    local gradient = Instance.new("UIGradient")
+                                    gradient.Color = ColorSequence.new{
+                                    ColorSequenceKeypoint.new(0, Color3.fromRGB(50,0,0)),
+                                    ColorSequenceKeypoint.new(1, Color3.fromRGB(0,0,0))
+                                }
+                                gradient.Rotation = 180
+                                gradient.Parent = new_tab
 
 				local function show()
 					if dropdown_open then return end
