@@ -103,17 +103,11 @@ Label.TextColor3 = Color3.new(1, 1, 1)
 Label.TextSize = 14
 Label.TextXAlignment = Enum.TextXAlignment.Left
 
-
-
-
-
-
-
 Window.Name = "Window"
 Window.Parent = Prefabs
 Window.Active = true
 Window.BackgroundColor3 = Color3.new(1, 1, 1)
-Window.BackgroundTransparency = 0.5
+Window.BackgroundTransparency = 1
 Window.ClipsDescendants = true
 Window.Position = UDim2.new(0, 20, 0, 20)
 Window.Selectable = true
@@ -122,28 +116,6 @@ Window.Image = "rbxassetid://2851926732"
 Window.ImageColor3 = Color3.new(0.0823529, 0.0862745, 0.0901961)
 Window.ScaleType = Enum.ScaleType.Slice
 Window.SliceCenter = Rect.new(12, 12, 12, 12)
-
-local Gradient = Instance.new("UIGradient")
-Gradient.Parent = Window
-
-Gradient.Color = ColorSequence.new{
-    ColorSequenceKeypoint.new(0, Color3.fromRGB(10,10,10)),
-    ColorSequenceKeypoint.new(0.5, Color3.fromRGB(60,0,0)),
-    ColorSequenceKeypoint.new(1, Color3.fromRGB(120,0,0))
-}
-
-Gradient.Rotation = 135
-
-local Blur = Instance.new("UIStroke")
-Blur.Thickness = 1.5
-Blur.Color = Color3.fromRGB(255,0,0)
-Blur.Parent = Window
-
-
-
-
-
-
 
 Resizer.Name = "Resizer"
 Resizer.Parent = Window
@@ -204,6 +176,29 @@ Tabs.BackgroundColor3 = Color3.new(1, 1, 1)
 Tabs.BackgroundTransparency = 1
 Tabs.Position = UDim2.new(0, 15, 0, 60)
 Tabs.Size = UDim2.new(1, -30, 1, -60)
+
+
+
+
+
+local Gradient = Instance.new("UIGradient")
+Gradient.Parent = Tabs
+
+Gradient.Color = ColorSequence.new{
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(10,10,10)),
+    ColorSequenceKeypoint.new(0.5, Color3.fromRGB(60,0,0)),
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(120,0,0))
+}
+
+Gradient.Rotation = 135
+
+local Blur = Instance.new("UIStroke")
+Blur.Thickness = 1.5
+Blur.Color = Color3.fromRGB(255,0,0)
+Blur.Parent = Tabs
+
+
+
 
 Title.Name = "Title"
 Title.Parent = Window
