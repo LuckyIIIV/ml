@@ -86,11 +86,38 @@ local Windows = Instance.new("Frame")
 imgui.Name = "imgui"
 imgui.Parent = game:GetService("CoreGui")
 
+
+
+
+
+
 Prefabs.Name = "Prefabs"
 Prefabs.Parent = imgui
 Prefabs.BackgroundColor3 = Color3.new(1, 1, 1)
+Prefabs.BackgroundTransparency = 0.5
 Prefabs.Size = UDim2.new(0, 100, 0, 100)
 Prefabs.Visible = false
+
+local gradient = Instance.new("UIGradient")
+gradient.Parent = Prefabs
+
+gradient.Color = ColorSequence.new{
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(10,10,10)),
+    ColorSequenceKeypoint.new(0.5, Color3.fromRGB(60,0,0)),
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(120,0,0))
+}
+
+gradient.Rotation = 120
+
+local Blur = Instance.new("UIStroke")
+Blur.Thickness = 1.5
+Blur.Color = Color3.fromRGB(255,0,0)
+Blur.Parent = Prefabs
+
+
+
+
+
 
 Label.Name = "Label"
 Label.Parent = Prefabs
@@ -176,29 +203,6 @@ Tabs.BackgroundColor3 = Color3.new(1, 1, 1)
 Tabs.BackgroundTransparency = 1
 Tabs.Position = UDim2.new(0, 15, 0, 60)
 Tabs.Size = UDim2.new(1, -30, 1, -60)
-
-
-
-
-
-local Gradient = Instance.new("UIGradient")
-Gradient.Parent = Tabs
-
-Gradient.Color = ColorSequence.new{
-    ColorSequenceKeypoint.new(0, Color3.fromRGB(10,10,10)),
-    ColorSequenceKeypoint.new(0.5, Color3.fromRGB(60,0,0)),
-    ColorSequenceKeypoint.new(1, Color3.fromRGB(120,0,0))
-}
-
-Gradient.Rotation = 135
-
-local Blur = Instance.new("UIStroke")
-Blur.Thickness = 1.5
-Blur.Color = Color3.fromRGB(255,0,0)
-Blur.Parent = Tabs
-
-
-
 
 Title.Name = "Title"
 Title.Parent = Window
