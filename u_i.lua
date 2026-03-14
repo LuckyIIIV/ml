@@ -1125,14 +1125,20 @@ function library:AddWindow(title, options)
 				new_tab.Parent = tabs
 				new_tab.ZIndex = new_tab.ZIndex + (windows * 10)
 
-                                new_tab.BackgroundTransparency = 0.45
-                                    local gradient = Instance.new("UIGradient")
-                                    gradient.Color = ColorSequence.new{
+                                local overlay = Instance.new("Frame")
+                                overlay.Size = UDim2.new(1,0,1,0)
+                                overlay.Position = UDim2.new(0,0,0,0)
+                                overlay.BackgroundTransparency = 0.45
+                                overlay.BorderSizePixel = 0
+                                overlay.Parent = new_tab
+
+                                local gradient = Instance.new("UIGradient")
+                                gradient.Color = ColorSequence.new{
                                     ColorSequenceKeypoint.new(0, Color3.fromRGB(50,0,0)),
                                     ColorSequenceKeypoint.new(1, Color3.fromRGB(0,0,0))
                                 }
                                 gradient.Rotation = 180
-                                gradient.Parent = new_tab
+                                gradient.Parent = overlay
 
 				local function show()
 					if dropdown_open then return end
